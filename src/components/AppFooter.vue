@@ -138,7 +138,10 @@ export default {
                 <div class="container">
 
                     <ul v-for="(list, index) in lists" :key="index">
-                        <li>{{ list.title }}
+                        <li>
+                            <h3>
+                                {{ list.title }}
+                            </h3>
                             <ul>
                                 <li v-for="(link, index) in list.links" :key="index">
                                     <a :href="link.url">{{ link.name }}</a>
@@ -159,13 +162,43 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-    .links {
-        background-image: url("../assets/footer-bg.jpg");
-        background-size: cover;
+.links {
+  background-image: url("../assets/footer-bg.jpg");
+  background-size: cover;
+  padding: 20px 0;
 
-        .container {
-            min-height: 300px;
-        }
+  .container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    padding: 0 15px;
+
+    h3 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 10px;
     }
+
+    ul {
+    list-style: none;
+    padding: 0;
+
+        li {
+            margin-bottom: 5px;
+
+                a {
+                color: #676767;
+                font-size: 15px;
+                text-decoration: none;
+
+                &:hover {
+                    color: #fff;
+                }
+                }
+            }
+        }
+    }   
+}
+
 
 </style>
