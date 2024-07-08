@@ -97,9 +97,10 @@ export default {
                 <ProductCard v-for="(product, index) in products" :key="index" :details="product"/>
 
             </div>
-            <!-- <a href="#" class="button">
+
+            <a href="#" class="button">
                 LOAD MORE
-            </a> -->
+            </a>
         </div>
     </section>
 
@@ -108,15 +109,22 @@ export default {
 <style lang="scss" scoped>
     section {
         background-color: #1c1c1c;
-
-        // debug
-        min-height: 500px;
+        padding: 100px 0;
 
         .row {
-            padding: 100px 0;
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
+        }
+
+        .button {
+            background-color: #0282f9;;
+            color: #fff;
+            font-weight: bold;
+            padding: 15px 50px;
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
         }
     }
 </style>
