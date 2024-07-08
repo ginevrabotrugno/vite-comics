@@ -39,6 +39,20 @@ export default {
                     ]
                 },
                 {
+                    title: "SHOP",
+                    links: [
+                        {
+                            name: "Shop DC",
+                            url: "#"
+                        },
+                        {
+                            name: "Shop DC Collectibles",
+                            url: "#"
+                        },
+                        
+                    ]
+                },
+                {
                     title: "DC",
                     links: [
                         {
@@ -112,21 +126,35 @@ export default {
                         },
                     ]
                 },
-                {
-                    title: "SHOP",
-                    links: [
-                        {
-                            name: "Shop DC",
-                            url: "#"
-                        },
-                        {
-                            name: "Shop DC Collectibles",
-                            url: "#"
-                        },
-                        
-                    ]
+            ],
+            icons: [
+            {
+                    src: "footer-facebook.png",
+                    url: "#"
                 },
+                {
+                    src: "footer-periscope.png",
+                    url: "#"
+                },
+                {
+                    src: "footer-pinterest.png",
+                    url: "#"
+                },
+                {
+                    src: "footer-twitter.png",
+                    url: "#"
+                },
+                {
+                    src: "footer-youtube.png",
+                    url: "#"
+                },
+                
             ]
+        }
+    },
+    methods: {
+        getImagePath(imgPath) {
+            return new URL(imgPath, import.meta.url).href;
         }
     }
 }
@@ -155,49 +183,108 @@ export default {
            <section class="sign-up">
                 <div class="container">
 
+                    <a href="#" class="button">
+                        SIGN-UP NOW!
+                    </a>
+
+                    <nav>
+                        <ul>
+                            <li class="follow">FOLLOW US</li>
+                            <li v-for="(icon, index) in icons" :key="index">
+                                <a :href="icon.url">
+                                    <img :src="getImagePath(`../assets/${icon.src}`)" alt="logo">
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-           </section>
+            </section>
  
     </footer>
 </template>
 
 <style lang="scss" scoped>
 .links {
-  background-image: url("../assets/footer-bg.jpg");
-  background-size: cover;
-  padding: 20px 0;
+    background-image: url("../assets/footer-bg.jpg");
+    background-size: cover;
+    padding: 20px 0;
+    overflow: hidden;
 
-  .container {
-    display: flex;
-    justify-content: flex-start;
-    gap: 30px;
-    padding: 0 15px;
+    .container {
+        max-height: 400px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        align-content: flex-start;
+        gap: 30px;
+        padding: 15px 0;
+        position: relative;
 
-    h3 {
-    color: #fff;
-    font-size: 20px;
-    margin-bottom: 10px;
-    }
+        &::after {
+            content: url("/src/assets/dc-logo-bg.png");
+            object-fit: cover;
+            position: absolute;
+            top: -81px;
+            right: 0;
+            width: 500px;
+            aspect-ratio: 1/1;
+        }
 
-    ul {
-    list-style: none;
-    padding: 0;
+        h3 {
+            color: #fff;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
 
-        li {
-            margin-bottom: 5px;
+        ul {
+            list-style: none;
 
-                a {
-                color: #676767;
-                font-size: 15px;
-                text-decoration: none;
+                li {
+                    margin-bottom: 5px;
 
-                &:hover {
-                    color: #fff;
-                }
-                }
-            }
+                        a {
+                        color: #676767;
+                        font-size: smaller;
+                        text-decoration: none;
+
+                            &:hover {
+                                color: #fff;
+                            }
+                        }
+                    }
         }
     }   
+}
+
+.sign-up {
+    background-color: #303030;
+    color: #fff;
+    height: 80px;
+
+    .container {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .button {
+            padding: 10px 25px;
+            border: solid 4px #0874d9;
+            font-weight: bold;
+        }
+
+        ul {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+
+            .follow {
+                font-weight: bold;
+                color: #0874d9;
+            }
+        }
+    }
 }
 
 

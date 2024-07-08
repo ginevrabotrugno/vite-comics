@@ -94,7 +94,7 @@ export default {
             display: flex;
             gap: 20px;
             align-items: center;
-
+            font-size: small;
         }
 
     }
