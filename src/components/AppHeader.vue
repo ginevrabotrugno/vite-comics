@@ -70,34 +70,60 @@ export default {
             </nav>
 
         </div>
+        <div class="jumbotron">
+            <div class="container">
+                <a href="#" class="button">
+                    CURRENT SERIES
+                </a>
+            </div>
+        </div>
     </header>
+
 </template>
 
 <style lang="scss" scoped>
 
     header{
-        height: 100px;
-    }
 
-    .container {
+        .container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 100%;
+        height: 100px;
 
-        .logo {
-        width: 50px;
-        aspect-ratio: 1/1;
+            .logo {
+            width: 50px;
+            aspect-ratio: 1/1;
+            }
+
+            ul {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                font-size: small;
+            }
+
         }
 
-        ul {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            font-size: small;
+        .jumbotron {
+            background-image: url("../assets/jumbotron.jpg");
+            height: 350px;
+            background-size: cover;
+            position: relative;
+
+            .button {
+                padding: 10px 25px;
+                background-color: #0282f9;
+                color: #fff;
+                font-weight: bold;
+                position: absolute;
+                bottom: -20px;
+                left: 150px;
+            }
         }
 
     }
+
 
     
 </style>

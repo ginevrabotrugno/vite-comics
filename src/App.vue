@@ -16,7 +16,11 @@ export default {
 
 <template>
   <AppHeader />
-  <AppContent/>
+  
+  <main>
+    <AppContent/>  
+  </main>
+  
   <AppFooter/>
 </template>
 
