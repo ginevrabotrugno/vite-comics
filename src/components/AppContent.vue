@@ -94,12 +94,12 @@ export default {
         <div class="container">
             <div class="row">
 
-                <ProductCard/>
+                <ProductCard v-for="(product, index) in products" :key="index" :details="product"/>
 
             </div>
-            <a href="#" class="button">
+            <!-- <a href="#" class="button">
                 LOAD MORE
-            </a>
+            </a> -->
         </div>
     </section>
 
@@ -113,6 +113,7 @@ export default {
         min-height: 500px;
 
         .row {
+            padding: 100px 0;
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
