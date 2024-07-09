@@ -46,9 +46,16 @@ export default {
                     url: "#",
                 },
 
-            ]
+            ],
+            activeIndex: null,
+        }
+    },
+    methods: {
+        setActive(index) {
+            this.activeIndex = index;
         }
     }
+    
 }
 </script>
 
@@ -61,7 +68,8 @@ export default {
 
             <nav>
                 <ul>
-                    <li v-for="(link, index) in links" :key="index">
+                    <li v-for="(link, index) in links" :key="index" :class="{ active: index === activeIndex }"
+                    @click="setActive(index)">
                         <a :href="link.url">
                             {{ link.text }}
                         </a>
@@ -101,6 +109,22 @@ export default {
                 gap: 20px;
                 align-items: center;
                 font-size: small;
+
+                .active {
+                    color: #0282f9;
+                    border-bottom: 4px solid #0282f9;
+                }
+
+                li {
+                    height: 100px;
+                    line-height: 100px;
+                    vertical-align: middle;
+                }
+
+                li:hover {
+                    color: #0282f9;
+                    border-bottom: 4px solid #0282f9;
+                }
             }
 
         }
